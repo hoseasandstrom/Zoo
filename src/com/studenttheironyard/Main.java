@@ -7,6 +7,7 @@ public class Main {
         Animal s = createAnimal("Snake");
         Animal h = createAnimal("Hawk");
 
+        //anonymous class
         Animal a = new Reptile() {
 
             @Override
@@ -15,6 +16,13 @@ public class Main {
             }
         };
         a.name = "Alligator";
+
+        // anonymous function a.k.a. lambda - injectable method
+        Runnable r = () -> {
+            System.out.println("Hello from lamda!");
+        };
+        sayHello(r);
+
 
         d.makeSound();
         s.makeSound();
@@ -40,4 +48,9 @@ public class Main {
         }
         return new Animal();
     }
+    public static void sayHello(Runnable runnable) {
+        System.out.println("Hello!");
+        runnable.run();
+    }
+
 }
